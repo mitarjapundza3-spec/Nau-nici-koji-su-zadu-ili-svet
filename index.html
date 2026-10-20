@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Naučnici koji su zadužili svet</title>
+    <meta name="description" content="Otkrijte naučnike koji su promenili svet svojim otkrićima, idejama i radom.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #f6f8fc;
+            --white: #ffffff;
+            --dark: #101828;
+            --text: #344054;
+            --muted: #667085;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --border: #e4e7ec;
+            --card-shadow: 0 20px 50px rgba(16, 24, 40, .08);
+            --radius: 22px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        .container {
+            width: min(1180px, calc(100% - 40px));
+            margin: auto;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,.88);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(228,231,236,.8);
+        }
+
+        .nav {
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            font-weight: 800;
+            color: var(--dark);
+            font-size: 18px;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 13px;
+            display: grid;
+            place-items: center;
+            color: white;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            font-size: 21px;
+            box-shadow: 0 8px 20px rgba(37,99,235,.25);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 600;
+            color: #475467;
+            transition: .2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-button {
+            background: var(--dark);
+            color: white !important;
+            padding: 11px 18px;
+            border-radius: 10px;
+        }
+
+        .mobile-menu {
+            display: none;
+            border: 0;
+            background: none;
+            font-size: 27px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 100px 0 115px;
+            background:
+                radial-gradient(circle at 80% 15%, rgba(124,58,237,.13), transparent 30%),
+                radial-gradient(circle at 15% 50%, rgba(37,99,235,.12), transparent 30%),
+                linear-gradient(180deg, #fff 0%, #f6f8fc 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr .85fr;
+            align-items: center;
+            gap: 70px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #eef4ff;
+            color: var(--primary);
+            padding: 8px 13px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .eyebrow span {
+            width: 7px;
+            height: 7px;
+            background: #22c55e;
+            border-radius: 50%;
+        }
+
+        h1 {
+            color: var(--dark);
+            font-family: "Playfair Display", serif;
+            font-size: clamp(48px, 6vw, 78px);
+            line-height: 1.03;
+            letter-spacing: -2px;
+            margin-bottom: 25px;
+        }
+
+        h1 em {
+            font-style: normal;
+            color: var(--primary);
+        }
+
+        .hero-description {
+            max-width: 650px;
+            color: var(--muted);
+            font-size: 18px;
+            margin-bottom: 35px;
+        }
+
+        .search-box {
+            max-width: 610px;
+            display: flex;
+            background: white;
+            padding: 7px;
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(16,24,40,.08);
+        }
+
+        .search-box input {
+            flex: 1;
+            min-width: 0;
+            border: 0;
+            outline: none;
+            padding: 14px 16px;
+            color: var(--dark);
+            background: transparent;
+        }
+
+        .search-box button {
+            border: 0;
+            border-radius: 11px;
+            padding: 0 23px;
+            color: white;
+            background: var(--primary);
+            cursor: pointer;
+            font-weight: 700;
+            transition: .2s;
+        }
+
+        .search-box button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .hero-card {
+            position: relative;
+            min-height: 450px;
+            border-radius: 30px;
+            overflow: hidden;
+            background:
+                linear-gradient(135deg, rgba(15,23,42,.1), rgba(15,23,42,.7)),
+                url("https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1000&q=85")
+                center/cover;
+            box-shadow: 0 35px 80px rgba(16,24,40,.18);
+        }
+
+        .hero-card-info {
+            position: absolute;
+            bottom: 25px;
+            left: 25px;
+            right: 25px;
+            padding: 23px;
+            color: white;
+            border-radius: 19px;
+            background: rgba(15,23,42,.72);
+            backdrop-filter: blur(15px);
+        }
+
+        .hero-card-info small {
+            opacity: .7;
+        }
+
+        .hero-card-info h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            margin-top: 5px;
+        }
+
+        /* =========================
+           STATS
+        ========================= */
+
+        .stats {
+            margin-top: -45px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+        }
+
+        .stat {
+            padding: 30px;
+            text-align: center;
+            border-right: 1px solid var(--border);
+        }
+
+        .stat:last-child {
+            border-right: 0;
+        }
+
+        .stat strong {
+            display: block;
+            color: var(--dark);
+            font-size: 30px;
+            font-weight: 800;
+        }
+
+        .stat span {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            max-width: 650px;
+        }
+
+        .section-title span {
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .section-title h2 {
+            color: var(--dark);
+            font-family: "Playfair Display", serif;
+            font-size: 43px;
+            line-height: 1.1;
+            margin-top: 10px;
+        }
+
+        .section-title p {
+            margin-top: 14px;
+            color: var(--muted);
+        }
+
+        .view-all {
+            color: var(--primary);
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        /* =========================
+           SCIENTISTS
+        ========================= */
+
+        .scientists {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .scientist-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: .3s ease;
+        }
+
+        .scientist-card:hover {
+            transform: translateY(-7px);
+            box-shadow: var(--card-shadow);
+        }
+
+        .scientist-image {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .scientist-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .5s;
+        }
+
+        .scientist-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .tag {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: rgba(255,255,255,.92);
+            padding: 7px 11px;
+            border-radius: 8px;
+            color: var(--primary);
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .scientist-content {
+            padding: 23px;
+        }
+
+        .scientist-content h3 {
+            font-family: "Playfair Display", serif;
+            color: var(--dark);
+            font-size: 27px;
+        }
+
+        .scientist-content .years {
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 700;
+            margin: 4px 0 12px;
+        }
+
+        .scientist-content p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .read-more {
+            color: var(--dark);
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        /* =========================
+           CATEGORIES
+        ========================= */
+
+        .categories {
+            background: white;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .category {
+            padding: 27px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: #fff;
+            transition: .25s;
+        }
+
+        .category:hover {
+            border-color: #b8c8f5;
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(16,24,40,.06);
+        }
+
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            display: grid;
+            place-items: center;
+            border-radius: 14px;
+            background: #eef4ff;
+            font-size: 22px;
+            margin-bottom: 17px;
+        }
+
+        .category h3 {
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .category p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* =========================
+           FEATURE
+        ========================= */
+
+        .feature {
+            background: var(--dark);
+            color: white;
+            overflow: hidden;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: .9fr 1.1fr;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .feature-image {
+            height: 480px;
+            border-radius: 27px;
+            background:
+                linear-gradient(180deg, transparent 35%, rgba(0,0,0,.7)),
+                url("https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1000&q=85")
+                center/cover;
+        }
+
+        .feature-text span {
+            color: #93c5fd;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .feature-text h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 48px;
+            line-height: 1.08;
+            margin: 15px 0 22px;
+        }
+
+        .feature-text p {
+            color: #98a2b3;
+            margin-bottom: 28px;
+        }
+
+        .feature-list {
+            list-style: none;
+            display: grid;
+            gap: 14px;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            color: #d0d5dd;
+        }
+
+        .check {
+            width: 25px;
+            height: 25px;
+            display: grid;
+            place-items: center;
+            background: rgba(37,99,235,.25);
+            color: #93c5fd;
+            border-radius: 50%;
+            font-size: 12px;
+        }
+
+        /* =========================
+           TIMELINE
+        ========================= */
+
+        .timeline {
+            max-width: 850px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            width: 50%;
+            padding: 15px 45px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: 50%;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 22px;
+            width: 13px;
+            height: 13px;
+            background: var(--primary);
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 2px #bfdbfe;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -7px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -7px;
+        }
+
+        .timeline-year {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 13px;
+        }
+
+        .timeline-item h3 {
+            color: var(--dark);
+            font-family: "Playfair Display", serif;
+            font-size: 24px;
+            margin: 5px 0;
+        }
+
+        .timeline-item p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            padding-top: 30px;
+        }
+
+        .cta-box {
+            padding: 70px 40px;
+            text-align: center;
+            border-radius: 28px;
+            background:
+                radial-gradient(circle at 20% 0%, rgba(255,255,255,.15), transparent 25%),
+                linear-gradient(135deg, #1d4ed8, #6d28d9);
+            color: white;
+        }
+
+        .cta-box h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 45px;
+            margin-bottom: 14px;
+        }
+
+        .cta-box p {
+            max-width: 580px;
+            margin: 0 auto 28px;
+            color: #dbeafe;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 13px 23px;
+            border-radius: 10px;
+            font-weight: 800;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            margin-top: 100px;
+            padding: 60px 0 30px;
+            background: #0b1220;
+            color: white;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 50px;
+            padding-bottom: 45px;
+        }
+
+        .footer-logo {
+            margin-bottom: 18px;
+        }
+
+        .footer-description {
+            max-width: 350px;
+            color: #98a2b3;
+            font-size: 14px;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 17px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #98a2b3;
+            font-size: 14px;
+            margin-bottom: 10px;
+            transition: .2s;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1d2939;
+            padding-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            color: #667085;
+            font-size: 13px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 950px) {
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 76px;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 25px;
+                flex-direction: column;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-grid,
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-card {
+                min-height: 400px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat:nth-child(2) {
+                border-right: 0;
+            }
+
+            .scientists {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .container {
+                width: min(100% - 28px, 1180px);
+            }
+
+            .hero {
+                padding: 70px 0 90px;
+            }
+
+            h1 {
+                font-size: 46px;
+                letter-spacing: -1px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .search-box {
+                flex-direction: column;
+                gap: 8px;
+                padding: 8px;
+            }
+
+            .search-box button {
+                height: 48px;
+            }
+
+            .stats-grid,
+            .scientists,
+            .category-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat {
+                border-right: 0;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .stat:last-child {
+                border-bottom: 0;
+            }
+
+            .section-header {
+                align-items: start;
+                flex-direction: column;
+            }
+
+            .section-title h2,
+            .feature-text h2,
+            .cta-box h2 {
+                font-size: 36px;
+            }
+
+            .timeline::before {
+                left: 8px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                width: 100%;
+                margin-left: 0;
+                text-align: left;
+                padding-left: 35px;
+                padding-right: 0;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 2px;
+                right: auto;
+            }
+
+            .feature-image {
+                height: 350px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+    <div class="container nav">
+
+        <a href="#" class="logo">
+            <div class="logo-icon">⚛</div>
+            <span>Naučnici</span>
+        </a>
+
+        <nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#naucnici">Naučnici</a></li>
+                <li><a href="#oblasti">Oblasti</a></li>
+                <li><a href="#vremenska-linija">Vremenska linija</a></li>
+                <li><a href="#o-nama">O projektu</a></li>
+                <li><a href="#istrazi" class="nav-button">Istraži</a></li>
+            </ul>
+        </nav>
+
+        <button class="mobile-menu" id="mobileMenu" aria-label="Otvori meni">
+            ☰
+        </button>
+
+    </div>
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<main>
+
+<section class="hero">
+
+    <div class="container hero-grid">
+
+        <div>
+
+            <div class="eyebrow">
+                <span></span>
+                Znanje koje je promenilo čovečanstvo
+            </div>
+
+            <h1>
+                Ljudi koji su
+                <em>promenili svet.</em>
+            </h1>
+
+            <p class="hero-description">
+                Upoznajte naučnike čije su ideje, otkrića i eksperimenti
+                promenili način na koji razumemo prirodu, život, svemir
+                i svet oko nas.
+            </p>
+
+            <div class="search-box">
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Pretraži naučnika, otkriće ili oblast..."
+                    aria-label="Pretraži"
+                >
+
+                <button onclick="searchScientists()">
+                    Pretraži
+                </button>
+            </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+            <div class="hero-card-info">
+                <small>Naučnik dana</small>
+                <h3>Albert Ajnštajn</h3>
+                <p>Teorija relativnosti i revolucija moderne fizike.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     STATS
+========================= -->
+
+<div class="container stats">
+
+    <div class="stats-grid">
+
+        <div class="stat">
+            <strong>150+</strong>
+            <span>Naučnika</span>
+        </div>
+
+        <div class="stat">
+            <strong>12</strong>
+            <span>Naučnih oblasti</span>
+        </div>
+
+        <div class="stat">
+            <strong>2.500+</strong>
+            <span>Godina naučnih dostignuća</span>
+        </div>
+
+        <div class="stat">
+            <strong>∞</strong>
+            <span>Ideja koje žive dalje</span>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     FEATURED SCIENTISTS
+========================= -->
+
+<section id="naucnici">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <div class="section-title">
+                <span>Istaknuti naučnici</span>
+
+                <h2>
+                    Umovi koji su promenili tok istorije
+                </h2>
+
+                <p>
+                    Od fizike i medicine do astronomije i hemije —
+                    upoznajte ljude iza najvećih naučnih otkrića.
+                </p>
+            </div>
+
+            <a href="#" class="view-all">
+                Pogledaj sve →
+            </a>
+
+        </div>
+
+
+        <div class="scientists" id="scientistGrid">
+
+            <article class="scientist-card">
+
+                <div class="scientist-image">
+                    <span class="tag">Fizika</span>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=800&q=80"
+                        alt="Albert Ajnštajn"
+                    >
+                </div>
+
+                <div class="scientist-content">
+
+                    <h3>Albert Ajnštajn</h3>
+
+                    <div class="years">
+                        1879 — 1955
+                    </div>
+
+                    <p>
+                        Jedan od najuticajnijih fizičara svih vremena.
+                        Njegova teorija relativnosti promenila je naše
+                        razumevanje prostora, vremena i gravitacije.
+                    </p>
+
+                    <a href="#" class="read-more">
+                        Pročitaj biografiju →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="scientist-card">
+
+                <div class="scientist-image">
+                    <span class="tag">Fizika</span>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80"
+                        alt="Marija Kiri"
+                    >
+                </div>
+
+                <div class="scientist-content">
+
+                    <h3>Marija Kiri</h3>
+
+                    <div class="years">
+                        1867 — 1934
+                    </div>
+
+                    <p>
+                        Pionirka istraživanja radioaktivnosti i prva osoba
+                        koja je osvojila dve Nobelove nagrade u različitim
+                        naučnim oblastima.
+                    </p>
+
+                    <a href="#" class="read-more">
+                        Pročitaj biografiju →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="scientist-card">
+
+                <div class="scientist-image">
+                    <span class="tag">Astronomija</span>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=800&q=80"
+                        alt="Nikola Tesla"
+                    >
+                </div>
+
+                <div class="scientist-content">
+
+                    <h3>Nikola Tesla</h3>
+
+                    <div class="years">
+                        1856 — 1943
+                    </div>
+
+                    <p>
+                        Vizionar i pronalazač čiji su radovi naizmenične
+                        struje, elektromagnetizma i bežičnih tehnologija
+                        ostavili dubok trag.
+                    </p>
+
+                    <a href="#" class="read-more">
+                        Pročitaj biografiju →
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CATEGORIES
+========================= -->
+
+<section class="categories" id="oblasti">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <div class="section-title">
+                <span>Istraži oblasti</span>
+
+                <h2>
+                    Nauka nema granice
+                </h2>
+
+                <p>
+                    Izaberite oblast i otkrijte naučnike koji su
+                    oblikovali naše razumevanje sveta.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="category-grid">
+
+            <a href="#" class="category">
+                <div class="category-icon">⚛️</div>
+                <h3>Fizika</h3>
+                <p>Materija, energija, prostor i vreme.</p>
+            </a>
+
+            <a href="#" class="category">
+                <div class="category-icon">🧬</div>
+                <h3>Biologija</h3>
+                <p>Život, evolucija, genetika i organizmi.</p>
+            </a>
+
+            <a href="#" class="category">
+                <div class="category-icon">🧪</div>
+                <h3>Hemija</h3>
+                <p>Materija i njene transformacije.</p>
+            </a>
+
+            <a href="#" class="category">
+                <div class="category-icon">🌌</div>
+                <h3>Astronomija</h3>
+                <p>Svemir, zvezde, planete i galaksije.</p>
+            </a>
+
+            <a href="#" class="category">
+                <div class="category-icon">🧠</div>
+                <h3>Medicina</h3>
+                <p>Zdravlje, bolesti i ljudsko telo.</p>
+            </a>
+
+            <a href="#" class="category">
+                <div class="category-icon">💻</div>
+                <h3>Računarstvo</h3>
+                <p>Algoritmi, računari i veštačka inteligencija.</p>
+            </a>
+
+            <a href="#" class="category">
+                <div class="category-icon">🌍</div>
+                <h3>Geonauke</h3>
+                <p>Zemlja, klima, okeani i prirodni procesi.</p>
+            </a>
+
+            <a href="#" class="category">
+                <div class="category-icon">🔬</div>
+                <h3>Još oblasti</h3>
+                <p>Otkrijte još naučnih disciplina.</p>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FEATURE
+========================= -->
+
+<section class="feature" id="o-nama">
+
+    <div class="container feature-grid">
+
+        <div class="feature-image"></div>
+
+        <div class="feature-text">
+
+            <span>Zašto ovaj projekat?</span>
+
+            <h2>
+                Nauka pripada svima.
+            </h2>
+
+            <p>
+                Naš cilj je da naučne priče učinimo jednostavnim,
+                zanimljivim i dostupnim svima — bez obzira na godine
+                ili prethodno znanje.
+            </p>
+
+            <ul class="feature-list">
+
+                <li>
+                    <span class="check">✓</span>
+                    Jasne i razumljive biografije
+                </li>
+
+                <li>
+                    <span class="check">✓</span>
+                    Najvažnija otkrića i dostignuća
+                </li>
+
+                <li>
+                    <span class="check">✓</span>
+                    Istorijski kontekst
+                </li>
+
+                <li>
+                    <span class="check">✓</span>
+                    Nauka predstavljena kroz priče
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TIMELINE
+========================= -->
+
+<section id="vremenska-linija">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <div class="section-title">
+                <span>Kroz vreme</span>
+
+                <h2>
+                    Najvažniji trenuci nauke
+                </h2>
+
+                <p>
+                    Nekoliko otkrića koja su promenila način na koji
+                    razumemo svet.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <span class="timeline-dot"></span>
+
+                <span class="timeline-year">1543.</span>
+
+                <h3>Kopernik</h3>
+
+                <p>
+                    Objavljuje heliocentrični model Sunčevog sistema.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <span class="timeline-dot"></span>
+
+                <span class="timeline-year">1687.</span>
+
+                <h3>Isak Njutn</h3>
+
+                <p>
+                    Formuliše zakone kretanja i univerzalne gravitacije.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <span class="timeline-dot"></span>
+
+                <span class="timeline-year">1859.</span>
+
+                <h3>Čarls Darvin</h3>
+
+                <p>
+                    Objavljuje teoriju evolucije prirodnom selekcijom.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <span class="timeline-dot"></span>
+
+                <span class="timeline-year">1905.</span>
+
+                <h3>Albert Ajnštajn</h3>
+
+                <p>
+                    Objavljuje radove koji menjaju temelje moderne fizike.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <span class="timeline-dot"></span>
+
+                <span class="timeline-year">1953.</span>
+
+                <h3>DNK</h3>
+
+                <p>
+                    Otkrivanje strukture DNK otvara novo poglavlje genetike.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <div class="cta-box">
+
+            <h2>
+                Koji naučnik će te inspirisati?
+            </h2>
+
+            <p>
+                Istraži biografije, otkrića i priče ljudi koji su
+                pomerili granice ljudskog znanja.
+            </p>
+
+            <a href="#naucnici" class="cta-button">
+                Započni istraživanje
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+
+                <div class="logo footer-logo">
+                    <div class="logo-icon">⚛</div>
+                    <span style="color:white;">Naučnici</span>
+                </div>
+
+                <p class="footer-description">
+                    Digitalna zbirka priča o ljudima koji su svojim
+                    radom promenili svet i ostavili znanje budućim
+                    generacijama.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Istraži</h4>
+
+                <a href="#naucnici">Naučnici</a>
+                <a href="#oblasti">Oblasti</a>
+                <a href="#vremenska-linija">Vremenska linija</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Projekat</h4>
+
+                <a href="#o-nama">O projektu</a>
+                <a href="#">Kontakt</a>
+                <a href="#">Izvori</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Prati nas</h4>
+
+                <a href="#">Instagram</a>
+                <a href="#">YouTube</a>
+                <a href="#">Facebook</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Naučnici koji su zadužili svet
+            </span>
+
+            <span>
+                Napravljeno za ljubitelje nauke.
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    const mobileMenu = document.getElementById("mobileMenu");
+    const navLinks = document.getElementById("navLinks");
+
+    mobileMenu.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
+
+
+    /* =========================
+       SEARCH
+    ========================= */
+
+    function searchScientists() {
+
+        const input = document.getElementById("searchInput");
+        const query = input.value.trim().toLowerCase();
+
+        const cards = document.querySelectorAll(".scientist-card");
+
+        if (!query) {
+            cards.forEach(card => {
+                card.style.display = "block";
+            });
+
+            return;
+        }
+
+        cards.forEach(card => {
+
+            const text = card.innerText.toLowerCase();
+
+            if (text.includes(query)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+
+        });
+
+        document.getElementById("naucnici").scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+
+
+    /* Enter = Search */
+
+    document
+        .getElementById("searchInput")
+        .addEventListener("keydown", function(event) {
+
+            if (event.key === "Enter") {
+                searchScientists();
+            }
+
+        });
+
+
+    /* =========================
+       CLOSE MOBILE MENU
+    ========================= */
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("active");
+        });
+
+    });
+
+</script>
+
+</body>
+</html>
